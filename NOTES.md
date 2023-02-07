@@ -28,27 +28,26 @@ See `:help regex` and `help syntax-highlighting`.
 
 For additional resources, see [Learn Vimscript the hard way](https://learnvimscriptthehardway.stevelosh.com/chapters/46.html).
 
-\v  - enable very magic mode
-\m  - enable magic mode
-\C  - enable case sensitivity
-\c  - disable case sensitivity
-%s  - global substitute
-/   - field separator
-^   - start of line
-[]  - character class
-[^] - negate contents of character class
-\(  - start hold pattern
-\s  - match whitespace
-*   - 0 or more times
-\)  - end hold pattern
-\<  - start of word boundary
-\>  - end of word boundary (prevent returns matching return)
-.   - match any character
-\1  - recall hold pattern number 1
-\2  - recall hold pattern number 2
-\r  - <CR>
-\c  - Case insensitive
-\C  - Case sensitive
-\|  - Big OR operator
-g   - Replace all occurrences in the line
-
+- `\v`    enable very magic mode
+- `\m`    enable magic mode
+- `\C`    enable case sensitivity
+- `\c`    disable case sensitivity
+- `%s`    global substitute
+- `/`     field separator
+- `^`     start of line
+- `[]`    character class
+- `[^]`   negate contents of character class
+- `\(`    start hold pattern
+- `\s`    match whitespace
+- `*`     0 or more times
+- `\)`    end hold pattern
+- `\<`    start of word boundary
+- `\>`    end of word boundary (prevent returns matching return)
+- `.`     match any character
+- `\1`    recall hold pattern number 1
+- `\2`    recall hold pattern number 2
+- `\r`    <CR>
+- `\c`    Case insensitive
+- `\C`    Case sensitive
+- `\|`    Big OR operator
+- `g`     Replace all occurrences in the line
