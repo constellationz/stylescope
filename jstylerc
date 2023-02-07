@@ -1,0 +1,72 @@
+syntax clear
+
+" Highlight column 100
+set cc=100
+
+" Warns are highlighted in yellow, these are errors that need manual review
+highlight Warn ctermfg=black ctermbg=yellow
+
+" Bad errors are highlighted in red
+highlight Bad ctermfg=black ctermbg=red
+
+" Match lowercase class names
+syntax match lowerClassName "\vclass\s*\C[a-z]"hs=e
+highlight link lowerClassName Bad
+
+" Match curly braces that don't start on new lines
+syntax match badCurlyBrace "\v\S\s*\{"hs=e
+highlight link badCurlyBrace Bad
+
+" Match block comments
+" syntax region blockComment start="/\*" end="\*/"
+syntax match blockComment "\v\/\*\_.*\*\/"
+highlight link blockComment Bad 
+
+" Match comments that don't have spaces after the "//"
+syntax match commentWithoutTrailingSpace "\v\/\/[^\ ]"
+highlight link commentWithoutTrailingSpace Bad
+
+" Match end-of-line comments
+syntax match eolComment /\v\S\s*\/\/.*/hs=s+1
+highlight link eolComment Warn
+
+" Match end-of-line comments with more than three words
+syntax match longEolComment /\v\S\s*\/\/\s*(\h.*\W){3,}.*/hs=s+1
+highlight link longEolComment Bad
+
+" Match 2 blank lines
+" Doesn't seem to highlight for some reason
+" syntax match twoBlankLines /\v^\n{2,}/
+" highlight link twoBlankLines Warn
+
+" Match 3 or more blank lines
+" Also doesn't highlight for some reason
+" syntax match threeOrMoreBlankLines /\v^\n{3,}/
+" highlight link threeOrMoreBlankLines Bad
+
+" Match using 'var' to declare variables
+syntax match usesVar /\v\C\s*var /hs=e-3,he=e-1
+highlight link usesVar Bad
+
+" Match lines longer than 100 characters
+syntax match longLine "\v%100v.*"
+highlight link longLine Bad
+
+" Match operators that aren't surrounded by spaces
+" Note: The surrounding characters exclude '/' as to avoid matching comments
+syntax match claustrophobicOperators /\v[^\ ^\/][\+\-\*\=\/\:][^\ ^\/]/hs=s+1,he=e-1
+highlight link claustrophobicOperators Bad
+
+" Match && which isn't surrounded by spaces
+syntax match claustrophobicAnd /\v[^\ ^\/]\&\&[^\ ^\/]/hs=s+1,he=e-1
+highlight link claustrophobicAnd Bad
+
+" Match || which isn't surrounded by spaces
+syntax match claustrophobicOr /\v[^\ ^\/]\|\|[^\ ^\/]/hs=s+1,he=e-1
+highlight link claustrophobicOr Bad
+
+" Highlight parenthesis that don't have spaces before important keywords
+" Use magic mode (\m) for this regex since very magic mode doesn't like this pattern match
+syntax match missingSpaceAfterKeyword /\m\(if\|switch\|while\|for\|synchronized\)(/hs=e
+highlight link missingSpaceAfterKeyword Bad
+
