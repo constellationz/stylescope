@@ -41,11 +41,11 @@ to enable syntax highlighting for Java source code.
 
 To reload normal syntax highlighting, simply run
 
-```:syntax off```
+```:syntax on```
 
-and
+and, in normal mode, press
 
-```:so```
+```CTRL+L``` (Reload highlighting)
 
 ## Attribution
 

@@ -119,6 +119,32 @@ a*b
 	a/b
 	a*b
 
+// Operators that have no spaces but are in square brackers (OK)
+[a+b]
+[a-b]
+[a/b]
+[a*b]
+ [a+b]
+ [a-b]
+ [a/b]
+ [a*b]
+	[a+b]
+	[a-b]
+	[a/b]
+	[a*b]
+[1+1]
+[1-1]
+[1/1]
+[1*1]
+ [1+1]
+ [1-1]
+ [1/1]
+ [1*1]
+	[1+1]
+	[1-1]
+	[1/1]
+	[1*1]
+
 // Operators that are surrounded by spaces (Should have no warning)
 int a = 1
 a || a

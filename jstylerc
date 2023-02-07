@@ -3,6 +3,9 @@ syntax clear
 " Highlight column 100
 set cc=100
 
+" OK highlights are green, these are things that should be okay
+highlight Ok ctermfg=black ctermbg=green
+
 " Warns are highlighted in yellow, these are errors that need manual review
 highlight Warn ctermfg=black ctermbg=yellow
 
@@ -56,6 +59,10 @@ highlight link longLine Bad
 " Note: The surrounding characters exclude '/' as to avoid matching comments
 syntax match claustrophobicOperators /\v[^\ ^\/][\+\-\*\=\/\:][^\ ^\/]/hs=s+1,he=e-1
 highlight link claustrophobicOperators Bad
+
+" Match operators that aren't surrounded by spaces but are in square brackets
+syntax match happyOperators /\v\[[^\ ^\/][\+\-\*\/][^\ ^\/]\]/hs=s+1,he=e-1
+highlight link happyOperators Ok
 
 " Match && which isn't surrounded by spaces
 syntax match claustrophobicAnd /\v[^\ ^\/]\&\&[^\ ^\/]/hs=s+1,he=e-1
