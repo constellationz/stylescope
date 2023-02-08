@@ -10,7 +10,7 @@ RCDIR=$SCOPEDIR/rc
 while true
 do
 	# Search for a student name, break if the search is canceled with CTRL+C
-	FZFRES=$(cd $REPORTDIR && fzf)
+	FZFRES=$(fd .*java $REPORTDIR | fzf)
 	if [ ! $PIPESTATUS -eq 0 ]
 	then
 		break;
@@ -18,5 +18,5 @@ do
 	FILENAME=$(basename $FZFRES)
 
 	# Move to main directory so vim can find the configs
-	nvim -o $REPORTDIR/$FILENAME $SUBMISSIONDIR/$FILENAME -u $RCDIR/gradingrc
+	nvim -u $RCDIR/gradingrc -o $REPORTDIR/$FILENAME $SUBMISSIONDIR/$FILENAME
 done

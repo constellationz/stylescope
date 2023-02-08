@@ -1,8 +1,5 @@
 syntax clear
 
-" Highlight column 100
-set cc=100
-
 " OK highlights are green, these are things that should be okay
 highlight Ok ctermfg=black ctermbg=green
 

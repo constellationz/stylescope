@@ -1,14 +1,14 @@
 " Set read only mode
-set ro
+set readonly
 
 " Show line numbers
 set number
 
 " Bind s (syntax) to show syntax
-nnoremap s :syntax on:echo "Showing native syntax"
+nnoremap s j:syntax on:echo "(s)howing native syntax"
 
 " Bind S (errors) to show errors
-nnoremap S :so ../rc/jstylerc:echo "Showing errors"
+nnoremap S j:so ../rc/jstylerc:echo "(S)howing errors"
 
 " Bind q to quit
 nnoremap q :qa!
@@ -19,8 +19,20 @@ nnoremap <Up> k
 nnoremap J j
 nnoremap K k
 
+" Disable insert mode keybinds
+nnoremap C \ 
+nnoremap c \ 
+nnoremap A \ 
+nnoremap a \ 
+nnoremap I \ 
+nnoremap i \ 
+nnoremap R \ 
+nnoremap r \ 
+nnoremap D \ 
+nnoremap d \ 
+
 " Bind t to see the score for the test cases
-nnoremap t /testcase ptsF(lyt.:echo "Yanked (t)estcase points"
+nnoremap t k/testcase ptsF(lyt.:echo "Yanked (t)estcase points"
 
 " Bind v to jump to style violations
-nnoremap v /Style Violations
+nnoremap v k/Style Violations:echo "Showing style (v)iolations"
