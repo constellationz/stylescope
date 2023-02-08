@@ -1,0 +1,6 @@
+#!/usr/bin/bash
+# Unlink the helper from GitHub
+
+SCRIPTDIR=$(dirname 0)
+
+sudo rm -rf $SCRIPTDIR/.git/
