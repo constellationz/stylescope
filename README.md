@@ -1,10 +1,33 @@
 # Stylescope
 
-`Stylescope` is a collection of Vim highlighters used to identify simple styling errors in Java programs.
+`Stylescope` is a collection of scripts used to grade assignments.
 
-Stylescope works by using regular expressions to match certain patterns and highlight them in red. Please note that certain highlights are not always 100% accurate.
+## Depends on:
 
-## Supported highlights & notes:
+- `nvim`
+- `fzf`
+
+## Usage
+
+1. Before working on any assignments, make sure to run `rmgit` to unlink the repository from Git and turn it into a regular directory.
+
+2. To start grading, place assignment reports in `reports` and assignment submissions in `submissions`.
+
+3. Then, run `bash scripts/g` to go into grading mode. You type in the name of the assignment and it is opened in a split Neovim window.
+
+## Features
+
+- To navigate between the files, use `<Shift>J` and `<Shift>L`
+
+- To enable error highlighting, press `S`. To disable it, press `s`.
+
+- To jump to the score earned on test cases, press `t`.
+
+- To jump to style violations, press `v`
+
+- To quit and search for the next student, press `q`
+
+## Supported error highlights:
 
 - [x] Lowercase class names (Red)
 - [x] Curly braces that don't start on their own lines (Red) 
@@ -22,30 +45,7 @@ Stylescope works by using regular expressions to match certain patterns and high
 - [ ] 3+ consecutive newlines (Should be red)
 - [ ] Bad indentation (Should be red)
 - [ ] Leaving a space before a function definition or call (Should be red)
-
-## Note to graders
-
-While Stylescope is a great tool for helping you spot errors, you shouldn't completely rely on it. Regexes for style highlighting will never be 100% accurate, so use your best judgement.
-
-For copy/paste notes, please see `README.md`
-
-## Usage
-
-To enable Stylescope's highlighting, open your source code file in Vim and run the command:
-
-```:so jstylerc```
-
-to enable syntax highlighting for Java source code.
-
-***(Note: jstylerc is for Java source code. There is currently no style highlighting for C source code)***
-
-To reload normal syntax highlighting, simply run
-
-```:syntax on```
-
-and, in normal mode, press
-
-```CTRL+L``` (Reload highlighting)
+- [ ] i++ and i-- incorrectly highlights
 
 ## Attribution
 
