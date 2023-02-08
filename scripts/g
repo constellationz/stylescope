@@ -1,17 +1,22 @@
 #!/usr/bin/bash
 
 SCRIPTDIR=$(dirname 0)
-REPORTDIR=$SCRIPTDIR/../reports
-SUBMISSIONDIR=$SCRIPTDIR/../submissions
-RCDIR=$SCRIPTDIR/../rc
+SCOPEDIR=$SCRIPTDIR/..
+REPORTDIR=$SCOPEDIR/reports
+SUBMISSIONDIR=$SCOPEDIR/submissions
+RCDIR=$SCOPEDIR/rc
 
+# Repeat search-open procedure forever
 while true
 do
-	FZFRES=$(fzf)
+	# Search for a student name, break if the search is canceled with CTRL+C
+	FZFRES=$(cd $REPORTDIR && fzf)
 	if [ ! $PIPESTATUS -eq 0 ]
 	then
 		break;
 	fi
 	FILENAME=$(basename $FZFRES)
+
+	# Move to main directory so vim can find the configs
 	nvim -o $REPORTDIR/$FILENAME $SUBMISSIONDIR/$FILENAME -u $RCDIR/gradingrc
 done

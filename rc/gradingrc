@@ -5,10 +5,10 @@ set ro
 set number
 
 " Bind s (syntax) to show syntax
-nnoremap s :syntax on
+nnoremap s :syntax on:echo "Showing native syntax"
 
 " Bind S (errors) to show errors
-nnoremap S :so jstylerc
+nnoremap S :so ../rc/jstylerc:echo "Showing errors"
 
 " Bind q to quit
 nnoremap q :qa!
