@@ -1,2 +1,4 @@
-reports/
-submissions/
+reports/*.java
+submissions/*.java
+!reports/sample.java
+!submissions/sample.java
