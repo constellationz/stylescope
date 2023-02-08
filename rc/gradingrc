@@ -1,0 +1,26 @@
+" Set read only mode
+set ro
+
+" Show line numbers
+set number
+
+" Bind s (syntax) to show syntax
+nnoremap s :syntax on
+
+" Bind S (errors) to show errors
+nnoremap S :so jstylerc
+
+" Bind q to quit
+nnoremap q :qa!
+
+" Bind up and down arrows to focus up and down
+nnoremap <Down> l
+nnoremap <Up> k
+nnoremap J j
+nnoremap K k
+
+" Bind t to see the score for the test cases
+nnoremap t /testcase ptsF(lyt.:echo "Yanked (t)estcase points"
+
+" Bind v to jump to style violations
+nnoremap v /Style Violations
