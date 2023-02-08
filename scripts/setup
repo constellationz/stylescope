@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+# Set up the environment for grading
+
+SCRIPTDIR=$(dirname 0)
+
+# Add grading scripts to PATH for this session
+export PATH=$PATH:$SCRIPTDIR

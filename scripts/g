@@ -1,0 +1,17 @@
+#!/usr/bin/bash
+
+SCRIPTDIR=$(dirname 0)
+REPORTDIR=$SCRIPTDIR/../reports
+SUBMISSIONDIR=$SCRIPTDIR/../submissions
+RCDIR=$SCRIPTDIR/../rc
+
+while true
+do
+	FZFRES=$(fzf)
+	if [ ! $PIPESTATUS -eq 0 ]
+	then
+		break;
+	fi
+	FILENAME=$(basename $FZFRES)
+	nvim -o $REPORTDIR/$FILENAME $SUBMISSIONDIR/$FILENAME -u $RCDIR/gradingrc
+done
